@@ -1,0 +1,52 @@
+<section class="mp-data-list">
+    
+    <date-picker (onChanged)="onChanged($event)"></date-picker>
+
+    <chart [stats]="stats"></chart>
+
+    <div class="row mp-data-list--header">
+        <div class="col-xs-2">
+            <button (click)="sortBy('city')" type="button" class="btn btn-link">city
+                <span [ngClass]="iconType('city')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button (click)="sortBy('start_date')" type="button" class="btn btn-link">start date
+                <span [ngClass]="iconType('start_date')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button (click)="sortBy('end_date')" type="button" class="btn btn-link">end date
+                <span [ngClass]="iconType('end_date')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button (click)="sortBy('price')" type="button" class="btn btn-link">price
+                <span [ngClass]="iconType('price')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button (click)="sortBy('status')" type="button" class="btn btn-link">status
+                <span [ngClass]="iconType('status')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="col-xs-2">
+            <button (click)="sortBy('color')" type="button" class="btn btn-link">color
+                <span [ngClass]="iconType('color')" class="glyphicon" aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+
+    <div *ngFor="let item of showedData" class="row mp-data-list--item">
+        <div class="col-xs-2">{{item.city}}</div>
+        <div class="col-xs-2">{{item.start_date}}</div>
+        <div class="col-xs-2">{{item.end_date}}</div>
+        <div class="col-xs-2">{{item.price}}</div>
+        <div class="col-xs-2">{{item.status}}</div>
+        <div class="col-xs-2">
+            <span [style.background]="item.color" class="mp-data-list--item--color-hint"></span>
+            <span class="mp-data-list--item--color-value">{{item.color}}</span>
+        </div>
+    </div>
+
+</section>
